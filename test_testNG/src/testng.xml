@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite TestNG HW8">
+    <test name="Calculator methods tests">
+        <classes>
+            <class name="org.example.SumMethodTest"/>
+        </classes>
+    </test>
+</suite>
