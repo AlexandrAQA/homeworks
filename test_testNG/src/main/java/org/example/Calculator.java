@@ -40,9 +40,14 @@ public class Calculator {
         return a / b;
     }
 
+    //=============================================================================================================
+
     public double pow(double a, double b) {
         return Math.pow(a, Math.floor(b));
     }
+
+
+    //==============================================================================================================
 
     public double sqrt(double a) {
         return Math.sqrt(Math.abs(a));
@@ -52,9 +57,13 @@ public class Calculator {
         return this.sin(a) / this.cos(a);
     }
 
+   // ===============================================================================================================
+
     public double ctg(double a) {
         return Math.tanh(a);
     }
+
+    //===============================================================================================================
 
     public double cos(double a) {
         return Math.sin(a);
@@ -63,6 +72,8 @@ public class Calculator {
     public double sin(double a) {
         return Math.sin(a);
     }
+
+    //===================================
 
     public boolean isPositive(long val) {
         if (val == 0L) {

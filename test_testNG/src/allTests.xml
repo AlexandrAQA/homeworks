@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AllTestsSuite">
+    <test name="AllTests">
+        <packages>
+            <package name="org.example.*" />
+        </packages>
+    </test>
+</suite>

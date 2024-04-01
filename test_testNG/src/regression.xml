@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite Regression">
+    <test name="Calculator methods tests">
+        <classes>
+            <class name="org.example.MultiplicationMethodTest"/>
+            <class name="org.example.CosMethodTest"/>
+            <class name="org.example.SinMethodTest"/>
+            <class name="org.example.IsNegativeMethodTest"/>
+            <class name="org.example.IsPositiveMethodTest"/>
+            <class name="org.example.TgMethodTest"/>
+            <class name="org.example.CtgMethodTest"/>
+        </classes>
+    </test>
+</suite>

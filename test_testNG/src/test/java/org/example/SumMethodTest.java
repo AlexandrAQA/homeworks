@@ -1,11 +1,10 @@
 package org.example;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.*;
 
 
-public class SumMethodTest extends BaseTest{
+public class SumMethodTest extends BaseTest {
     @DataProvider
     public static Object[][] sumTestData() {
         return new Object[][]{
@@ -16,17 +15,19 @@ public class SumMethodTest extends BaseTest{
                 {-10, -5, -15}
         };
     }
+
     // tests for LONG
     @Test(dataProvider = "sumTestData", groups = {"smoke"})
     public void testSumLongNumbers(long a, long b, long expected) {
         long result = calculator.sum(a, b);
-        Assert.assertEquals(result, expected, "Sum of numbers: " + a + " and " + b); ;
+        Assert.assertEquals(result, expected, "Sum of numbers: " + a + " and " + b);
+        ;
     }
 
     // tests for DOUBLE
     @DataProvider(name = "sumDoubleTestData")
     public Object[][] sumDoubleTestData() {
-        return new Object[][] {
+        return new Object[][]{
                 {5.5, 10.5, 16.0},   //positive numbers
                 {-5.5, -10.5, -16.0},  //negative numbers
                 {5.5, -10.5, -5.0},    //positive and negative numbers
@@ -37,7 +38,8 @@ public class SumMethodTest extends BaseTest{
 
         };
     }
-    @Test(dataProvider = "sumDoubleTestData", groups = {"regression"})
+
+    @Test(dataProvider = "sumDoubleTestData", groups = {"smoke"})
     public void testSumDouble(double a, double b, double expected) {
         double result = calculator.sum(a, b);
         Assert.assertEquals(result, expected, 0.001, "Sum of " + a + " and " + b + " (double)");

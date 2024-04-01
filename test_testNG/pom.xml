@@ -33,7 +33,7 @@
         <version>2.22.2</version>
         <configuration>
           <suiteXmlFiles>
-            <!-- Path to testng.xml file (suits):-->
+            <!-- Path to regression.xml file (suits):-->
             <suiteXmlFile>src/testng.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
