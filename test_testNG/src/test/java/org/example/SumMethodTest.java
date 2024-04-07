@@ -5,6 +5,7 @@ import org.testng.annotations.*;
 
 
 public class SumMethodTest extends BaseTest {
+
     @DataProvider
     public static Object[][] sumTestData() {
         return new Object[][]{
@@ -42,7 +43,7 @@ public class SumMethodTest extends BaseTest {
     @Test(dataProvider = "sumDoubleTestData", groups = {"smoke"})
     public void testSumDouble(double a, double b, double expected) {
         double result = calculator.sum(a, b);
-        Assert.assertEquals(result, expected, 0.001, "Sum of " + a + " and " + b + " (double)");
+        Assert.assertEquals(result, expected, "Sum of " + a + " and " + b + " (double)");
     }
 }
 
