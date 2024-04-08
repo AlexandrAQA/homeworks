@@ -34,7 +34,7 @@
         <configuration>
           <suiteXmlFiles>
             <!-- Path to regression.xml file (suits):-->
-            <suiteXmlFile>src/allTests.xml</suiteXmlFile>
+            <suiteXmlFile>src/smoke.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>
