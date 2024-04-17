@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite">
+    <test name="Smoke">
+        <groups>
+            <run>
+                <include name="smoke" />
+            </run>
+        </groups>
+        <classes>
+            <class name="org.example.SumMethodTest" />
+            <class name="org.example.DivisionMethodTest" />
+            <class name="org.example.SubMethodTest" />
+            <class name="org.example.MultiplicationMethodTest" />
+        </classes>
+    </test>
+</suite>

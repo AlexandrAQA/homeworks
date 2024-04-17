@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AllTestsSuite">
+    <test name="AllTests">
+        <classes>
+            <class name="org.example.TgMethodTest" />
+            <class name="org.example.CosMethodTest" />
+            <class name="org.example.TimeoutTest" />
+            <class name="org.example.SubMethodTest" />
+            <class name="org.example.MultiplicationMethodTest" />
+        </classes>
+    </test>
+</suite>
