@@ -1,6 +1,8 @@
-package org.example;
+package org.example.tests;
 
+import org.example.runner.BaseFunctionalTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +11,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CompAndNetworkTests extends BaseFunctionalTest{
+import static org.testng.AssertJUnit.fail;
+
+public class CompAndNetworkTests extends BaseFunctionalTest {
 
     @Test
     public void compAndNetCategoryTest2() {
@@ -22,10 +26,10 @@ public class CompAndNetworkTests extends BaseFunctionalTest{
                 webDriver.findElements(By.xpath(compAndNetPage.xpathExpression));
 
         // Convert WebElement list to String list and ignore empty strings
-        List<String> actualSubcategoriesText = actualSubcategories.stream()   //creating new stream
-                .map(WebElement::getText)                                     //converting WebElement to String
-                .filter(text -> !text.isEmpty())                            //ignoring empty strings
-                .collect(Collectors.toList());                              //collecting to list
+        List<String> actualSubcategoriesText = actualSubcategories.stream()
+                .map(WebElement::getText)
+                .filter(text -> !text.isEmpty())
+                .collect(Collectors.toList());
 
         //Sort both lists
         //This is necessary to ensure the same order of elements in both lists before comparison
@@ -33,7 +37,11 @@ public class CompAndNetworkTests extends BaseFunctionalTest{
         Collections.sort(compAndNetPage.expectedSubcategories);
 
         // Compare two lists
-        wait.until(webDriver -> actualSubcategoriesText.size() == compAndNetPage.expectedSubcategories.size());
+        try {
+            wait.until(webDriver -> actualSubcategoriesText.size() == compAndNetPage.expectedSubcategories.size());
+        } catch (TimeoutException e) {
+            fail("The number of subcategories is not equal to the expected number");
+        }
         Assert.assertEquals(actualSubcategoriesText, compAndNetPage.expectedSubcategories);
     }
 }
