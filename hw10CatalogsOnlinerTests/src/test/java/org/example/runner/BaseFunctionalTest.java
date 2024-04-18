@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -19,7 +20,8 @@ import static org.testng.AssertJUnit.fail;
 public class BaseFunctionalTest {
     public final static String CATALOG_URL = "https://catalog.onliner.by/";
     public final static By COOKIE_LOCATOR =
-            By.xpath(".//div[@class='fc-footer-buttons-container']//button//p[@class='fc-button-label'][contains(text(),'Соглашаюсь')]");
+            By.xpath(".//div[@class='fc-footer-buttons-container']//button//p[@class='fc-button-label']" +
+                    "[contains(text(),'Соглашаюсь')]");
 
     public static WebDriver webDriver;
     public WebDriverWait wait;
@@ -30,7 +32,8 @@ public class BaseFunctionalTest {
     }
 
     public By getTvCategoryLocator(String catalogCategories) {
-        return By.xpath(".//span[@class='catalog-navigation-classifier__item-title-wrapper'][contains(text(),'" + catalogCategories + "')]");
+        return By.xpath(".//span[@class='catalog-navigation-classifier__item-title-wrapper']" +
+                "[contains(text(),'" + catalogCategories + "')]");
     }
 
     public CompAndNetPage compAndNetPage = new CompAndNetPage();
@@ -66,8 +69,22 @@ public class BaseFunctionalTest {
 
     @BeforeMethod
     public void setUp() {
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--window-size=375,812"); // Размер экрана iPhone X
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-web-security");
+        options.addArguments("--allow-file-access-from-files");
+        options.addArguments("--start-maximized");
+        options.addArguments("--auto-open-devtools-for-tabs");
+        options.addArguments("--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) " +
+                "AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1");
+
+        webDriver = new ChromeDriver(options);
+        // webDriver = new ChromeDriver();
+        //webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(50));
         webDriver.get("https://www.onliner.by/");

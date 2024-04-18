@@ -9,8 +9,6 @@ public class CompAndNetPage {
 
     public final String componentsCard = ".//*[@class='catalog-navigation-list__dropdown-data']";
 
-    public final String componentLocator = ".//*[contains(text(),'Комплектующие')]";
-
     public String itemDetailsXPath = ".//*[@class = 'catalog-navigation-list__dropdown-title']";
 
     public List<String> expectedSubcategories = Arrays.asList(
