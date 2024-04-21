@@ -2,8 +2,6 @@ package org.example.tests;
 
 import org.example.runner.BaseFunctionalTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -14,14 +12,14 @@ public class MobTest extends BaseFunctionalTest {
     public Object[][] catalogPageTestData() {
         return new Object[][]{
                 {"Online prime"},
-//                {"Электроника"},
-//                {"Компьютеры и сети"},
-//                {"Бытовая техника"},
-//                {"На каждый день"},
-//                {"Стройка и ремонт"},
-//                {"Дом и сад"},
-//                {"Авто и мото"},
-//                {"Красота и спорт"},
+                {"Электроника"},
+                {"Компьютеры и сети"},
+                {"Бытовая техника"},
+                {"На каждый день"},
+                {"Стройка и ремонт"},
+                {"Дом и сад"},
+                {"Авто и мото"},
+                {"Красота и спорт"},
                 {"Детям и мамам"}
         };
     }

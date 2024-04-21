@@ -83,8 +83,6 @@ public class BaseFunctionalTest {
                 "AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1");
 
         webDriver = new ChromeDriver(options);
-        // webDriver = new ChromeDriver();
-        //webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(50));
         webDriver.get("https://www.onliner.by/");

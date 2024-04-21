@@ -36,7 +36,6 @@ public class CompAndNetworkTests extends BaseFunctionalTest {
         Collections.sort(actualSubcategoriesText);
         Collections.sort(compAndNetPage.expectedSubcategories);
 
-        // Compare two lists
         try {
             wait.until(webDriver -> actualSubcategoriesText.size() == compAndNetPage.expectedSubcategories.size());
         } catch (TimeoutException e) {

@@ -3,13 +3,7 @@ package org.example.pages;
 import java.util.Arrays;
 import java.util.List;
 
-public class CompAndNetPage {
-
-    public final String xpathExpression = ".//div[@class='catalog-navigation-list__aside-title']";
-
-    public final String componentsCard = ".//*[@class='catalog-navigation-list__dropdown-data']";
-
-    public String itemDetailsXPath = ".//*[@class = 'catalog-navigation-list__dropdown-title']";
+public class CompAndNetPage extends BasePage{
 
     public List<String> expectedSubcategories = Arrays.asList(
             "Ноутбуки, компьютеры, мониторы",
