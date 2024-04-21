@@ -31,8 +31,6 @@ public class CompAndNetworkTests extends BaseFunctionalTest {
                 .filter(text -> !text.isEmpty())
                 .collect(Collectors.toList());
 
-        //Sort both lists
-        //This is necessary to ensure the same order of elements in both lists before comparison
         Collections.sort(actualSubcategoriesText);
         Collections.sort(compAndNetPage.expectedSubcategories);
 
