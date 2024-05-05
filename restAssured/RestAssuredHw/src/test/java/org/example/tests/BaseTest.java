@@ -1,11 +1,12 @@
 package org.example.tests;
 
 import io.restassured.RestAssured;
-import org.junit.Before;
+import org.testng.annotations.BeforeMethod;
+
 
 public class BaseTest {
 
-    @Before
+    @BeforeMethod
     public void setup() {
         RestAssured.given().contentType("application/json");
     }

@@ -1,11 +1,14 @@
 package org.example.elements;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Data
 public class RequestBody {
+
+    @JsonProperty("title")
     private String title;
+    @JsonProperty("body")
     private String body;
+    @JsonProperty("userId")
     private int id;
 
     public void setId(int i) {

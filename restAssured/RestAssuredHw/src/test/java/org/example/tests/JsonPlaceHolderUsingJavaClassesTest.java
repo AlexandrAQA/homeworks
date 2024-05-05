@@ -3,7 +3,8 @@ package org.example.tests;
 import io.restassured.response.Response;
 import org.example.elements.RequestBody;
 import org.example.elements.ResponseBody;
-import org.junit.Test;
+import org.testng.annotations.Test;
+
 
 import static io.restassured.RestAssured.given;
 import static org.example.elements.Variables.BASE_URL;

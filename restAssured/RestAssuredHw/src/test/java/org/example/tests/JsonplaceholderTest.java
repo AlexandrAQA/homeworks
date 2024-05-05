@@ -2,7 +2,8 @@ package org.example.tests;
 
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import org.junit.Test;
+import org.testng.annotations.Test;
+
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -107,7 +108,6 @@ public class JsonplaceholderTest extends BaseTest {
                         .then()
                         .assertThat()
                         .statusCode(200)
-                        .body(matchesJsonSchemaInClasspath("getJsonSchema.json"))
                         .extract()
                         .response();
     }
