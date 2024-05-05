@@ -1,11 +1,12 @@
 package org.example.tests;
 
-import org.example.utils.Constants;
+import io.restassured.RestAssured;
+import org.junit.Before;
 
 public class BaseTest {
 
-   // Constants constants = new Constants();
-
-
-
+    @Before
+    public void setup() {
+        RestAssured.given().contentType("application/json");
+    }
 }
