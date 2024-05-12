@@ -1,5 +1,6 @@
 package org.example.runner;
 
+import org.example.pages.CatalogPage;
 import org.example.pages.CompAndNetPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -24,14 +25,15 @@ public class BaseFunctionalTest {
                     "[contains(text(),'Соглашаюсь')]");
 
     public static WebDriver webDriver;
-    public WebDriverWait wait;
+    public static WebDriverWait wait;
+    public CatalogPage catalogPage;
 
-    public void clickElementWithJS(By locator) {
+    public static void clickElementWithJS(By locator) {
         JavascriptExecutor executor = (JavascriptExecutor) webDriver;
         executor.executeScript("arguments[0].click();", webDriver.findElement(locator));
     }
 
-    public By getTvCategoryLocator(String catalogCategories) {
+    public static By getTvCategoryLocator(String catalogCategories) {
         return By.xpath(".//span[@class='catalog-navigation-classifier__item-title-wrapper']" +
                 "[contains(text(),'" + catalogCategories + "')]");
     }
@@ -86,6 +88,8 @@ public class BaseFunctionalTest {
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(50));
         webDriver.get("https://www.onliner.by/");
+
+        catalogPage = new CatalogPage();
     }
 
     @AfterMethod

@@ -1,8 +1,6 @@
 package org.example.tests;
 
 import org.example.runner.BaseFunctionalTest;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -27,12 +25,7 @@ public class CatalogTests extends BaseFunctionalTest {
 
     @Test(dataProvider = "catalogCategories")
     public void catalogPageTest(String catalogCategories) {
-        webDriver.get(CATALOG_URL);
-        if (!webDriver.findElements(COOKIE_LOCATOR).isEmpty()) {
-            clickElementWithJS(COOKIE_LOCATOR);
-        } else {
-            By categoryLocator = getTvCategoryLocator(catalogCategories);
-            Assert.assertEquals(webDriver.findElement(categoryLocator), catalogCategories);
-        }
+        catalogPage.openPage();
+        catalogPage.clickCategory(catalogCategories);
     }
 }
