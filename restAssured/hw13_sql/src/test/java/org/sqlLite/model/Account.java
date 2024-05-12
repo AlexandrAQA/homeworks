@@ -1,4 +1,4 @@
-package org.sqlLite.tables;
+package org.sqlLite.model;
 
 public class Account {
 
